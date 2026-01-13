@@ -1,0 +1,59 @@
+
+
+
+
+SHORTCUTS
+to play (on mac) - option/return 
+to stop (on mac) - option/return/.
+
+
+DRUMS
+bd - bass drum 
+sd - snare drum 
+hh - high hats
+~ - rests 
+.bank("RolandTR808") - bank for different types of drum kits 
+
+VOCALS
+numbers:1 - female voice announces number (cool aura)
+
+VARIATIONS 
+instrument:1 - different variations of the instrument 
+
+NOTES
+note("c4 d e f g a") - basic notes 
+.oct(-1) - octive of the notes 
+
+SOUNDS
+sound("hh * 3") // high hats * repetitions per cycle 
+
+SUBSEQUENCES 
+s("jass [rim jazz] ~ hh") - splits the second step into two substeps. nested sub sequences allowed. 
+    note: [hh hh hh] === hh*3
+
+SELECTIVE NOTES
+s("bd rim/2 mt lt") - only plays rim every 2nd cycle
+
+TIMING
+setcps(0.5) - default 0.5 cps, sets the duration of the cycle  
+setcps(130/60/4) - for 130 BPM 
+
+ONE STEP PER CYCLE 
+s("<bd ht>") - each element lasts for a full cycle
+
+
+
+REPETITION (STEPS)
+s("bd hh!3") - repeats hh 3x with equivalent beat to bd, same as "bd hh hh hh"
+
+ELONGATION (STEPS) 
+s("rim mt@3") - same as "rim mt ~ ~"
+
+SPEEDING UP (STEPS)
+s("mt lt*3") - same as "mt [lt lt lt]"
+
+
+POLY RHYTHMS
+s("<[lt ht mt], [rim casio] [rim casio rim]>*2") - polyphony: commas layer patterns
+s("[jazz casio rim, hh hh:2]*2) - polyrhythms: [] cycles align, subsequences repeat at the same rate (all sequences will have the same length)
+s("{jazz casio rim, hh hh:2}*2") - polymeters: {} steps align (same step duration) but different loop lengths (when shorter sequence ends it loops back to the beginning≥)
