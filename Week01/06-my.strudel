@@ -1,0 +1,19 @@
+
+
+
+d&b 
+setcps(0.85)
+
+$: s("<{doepferms404_bd!2 [doepferms404_bd*2] doepferms404_bd }>")._scope()
+$: s("<kpr77_bd/1?>*3")
+ //n("0!2".add(berlin.fast(1).mul(7))).scale("d:minor")
+
+$: s("wt_digital_echoes")._scope()
+
+
+// SKYLAS LATE NIGHT JAMS 
+
+$: n("2 2 4 2 2 2 4 2?").sound("jazz")
+$: note("c*3 a c*3 b").sound("piano").penv("<.5 0 7 -2>*2")
+
+ 

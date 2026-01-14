@@ -27,6 +27,10 @@ note("c4 d e f g a") - basic notes
 SOUNDS
 sound("hh * 3") // high hats * repetitions per cycle 
 
+N NOTATION 
+n("0 1 [4 2] 3*2").s(jazz) - equivalent to s("jazz jazz:1 [jazz:4 jazz:2] jazz:3*2")
+
+
 SUBSEQUENCES 
 s("jass [rim jazz] ~ hh") - splits the second step into two substeps. nested sub sequences allowed. 
     note: [hh hh hh] === hh*3
@@ -57,3 +61,8 @@ POLY RHYTHMS
 s("<[lt ht mt], [rim casio] [rim casio rim]>*2") - polyphony: commas layer patterns
 s("[jazz casio rim, hh hh:2]*2) - polyrhythms: [] cycles align, subsequences repeat at the same rate (all sequences will have the same length)
 s("{jazz casio rim, hh hh:2}*2") - polymeters: {} steps align (same step duration) but different loop lengths (when shorter sequence ends it loops back to the beginning≥)
+
+MY FIRST BEAT 
+sound("<{[bd bd] [bd bd], [~ lt] [lt lt] }>*4").bank("compurhythm8000")
+
+note: fav elements from presentation: seperated drum kit like the artcades chapel, mpc1000_bd, hodespolaris_bd, gm_distortion_guitar, bd bd [bd*2] bd, gm_contrabass gm_fx_atmosphere supersaw m
