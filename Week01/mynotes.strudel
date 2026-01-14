@@ -65,4 +65,39 @@ s("{jazz casio rim, hh hh:2}*2") - polymeters: {} steps align (same step duratio
 MY FIRST BEAT 
 sound("<{[bd bd] [bd bd], [~ lt] [lt lt] }>*4").bank("compurhythm8000")
 
+// SKYLAS LATE NIGHT JAMS 
+
+// (beat)
+$: n("2 2 4 2 2 2 4 2?").sound("jazz")
+$: s("1 [~ 1] [1 1] [~ 1]").sound("rolandmc303_bd")
+
+
+
+
+
+// SKYLAS TECHNO BEATS 
+
+setcpm(60)
+
+let vol = slider(1.612, 0, 2)
+
+// main techno beat (v ^ v ^ v ^ v ^)
+$: s("{bossdr55_sd ~ bossdr55_sd ~, ~ bossdr110_bd, linndrum_bd ~}")._scope()// syncopations 
+$: s("hh [~ hh] [~ hh] hh?")._scope()// kicks (bass) 
+$: s("[yamahary30_bd ~]*2").speed(1).gain(vol)
+
+// rumblee (prepare for bass drop)
+$: s("[bossdr55_hh ~]*8").gain((3-vol))
+
+// explosions! when bass drop
+
+
+// machine noise 
+$: s("[emumodular_perc?]*2")
+
+// some melody 
+//$: note("c3 <e2 <d2 ~>>").sound("gm_synth_bass_1").speed(slider( 11.676, -12, 12))
+
+
+
 note: fav elements from presentation: seperated drum kit like the artcades chapel, mpc1000_bd, hodespolaris_bd, gm_distortion_guitar, bd bd [bd*2] bd, gm_contrabass gm_fx_atmosphere supersaw m
