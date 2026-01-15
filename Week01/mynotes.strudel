@@ -104,7 +104,7 @@ note: fav elements from presentation: seperated drum kit like the artcades chape
 
 
 // SKYLAS HYPERPOP BEATS (slowed for readability) 
-setcps(0.25)
+setcps(0.30)
 
 $: s("crackle*4").density("<0.01 0.04 0.2 0.5>".slow(2))._scope() // texture, space
 
@@ -117,7 +117,7 @@ $: s("gm_pad_poly").partials(randL(200)) // ambiance
 $: note("c e g b g e b g")
   .fm("<0 1 2 4 8 32>") // bass drop on 8! 
 ._scope()
-$: s("<[rhodespolaris_bd]!3 [rhodespolaris_bd rhodespolaris_bd]>*4").gain(2)
-
+//$: s("<[rhodespolaris_bd]!3 [rhodespolaris_bd rhodespolaris_bd]>*4").gain(2)
+$: s("<rhodespolaris_bd>*8").gain(3) // pt 2, bass dropppppp
 $: s("[~ 1] 1 ~ [1 1]").sound("gm_voice_oohs").gain(3)// robot voice
   ._scope() 
