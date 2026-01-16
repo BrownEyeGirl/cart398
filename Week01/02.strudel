@@ -8,3 +8,11 @@ n("0*2 1 2 3 4 5 6 7")
   .s("darbuka")
   .gain(rand.range(0.25,0.75))
   .cutoff(rand.range(800,4000))
+
+
+// my notes added 
+
+n("0*2 1 2 3 4 5 6 7")
+  .s("darbuka")// sound of the notes 
+  .gain(rand.range(0.25,0.75)) // gain (aka volume) is random 
+  .cutoff(rand.range(0, 20000)) // how muffled it is? between 0 and 20000 
