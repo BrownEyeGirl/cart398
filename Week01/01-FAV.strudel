@@ -7,3 +7,10 @@
 sound("bd [~ rim] mt [lt ht]")
   .dist("2:0.5")
   .chunk(4, x => x.hurry(2))
+
+
+// SKYLA's EXPERIMENTS (movie soundtrack) 
+$: s("[bd ~] [hh hh] [bd ~]] [lt ~ lt ~]").bank("casiorz1")
+  .dist("5:5") // distortion(distortion, post gain vol) (range 0-10) 
+  .chunk(6, x => x.hurry(2)) // chunk(divides pattern into x parts, cycles through adding x.blank to each
+.echo(5, 1/8, 1) // .echo(n, time, decay)
