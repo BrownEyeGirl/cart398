@@ -62,7 +62,7 @@ s("<[lt ht mt], [rim casio] [rim casio rim]>*2") - polyphony: commas layer patte
 s("[jazz casio rim, hh hh:2]*2) - polyrhythms: [] cycles align, subsequences repeat at the same rate (all sequences will have the same length)
 s("{jazz casio rim, hh hh:2}*2") - polymeters: {} steps align (same step duration) but different loop lengths (when shorter sequence ends it loops back to the beginning≥)
 
-MY FIRST BEAT 
+// MY FIRST BEAT 
 sound("<{[bd bd] [bd bd], [~ lt] [lt lt] }>*4").bank("compurhythm8000")
 
 // SKYLAS LATE NIGHT JAMS 
@@ -121,3 +121,45 @@ $: note("c e g b g e b g")
 $: s("<rhodespolaris_bd>*8").gain(3) // pt 2, bass dropppppp
 $: s("[~ 1] 1 ~ [1 1]").sound("gm_voice_oohs").gain(3)// robot voice
   ._scope() 
+
+
+
+  setcps(0.30)
+
+$: s("crackle*4").density("<0.01 0.04 0.2 0.5>".slow(2))._scope() // texture, space
+
+$: s("[1 1] [1 ~] [1 1] 1 [1 1] [1 1] [1 1] [1 ~]").sound("bossdr220_sd").gain(.4) // hyperpop amp up
+$: s("[korgm1_sh [korgm1_sh korgm1_sh] korgm1_sh korgm1_sh]*2").gain(0.8) // whistles for the hats
+
+
+$: s("gm_pad_poly").partials(randL(200)) // ambiance 
+
+$: note("c e g b g e b g")
+  .fm("<0 1 2 4 8 16>") // bass drop on 8! 
+._scope()
+$: s("<[rhodespolaris_bd]!3 [rhodespolaris_bd rhodespolaris_bd]>*8").gain(2)._scope()
+$: s("<rhodespolaris_bd>*8").gain(2) // pt 2, bass dropppppp
+$: s("[~ 1] 1 1 [1 1]").sound("gm_voice_oohs").gain(1)// robot voice
+  ._scope() 
+
+
+  setcps(150/60/4)
+d1: s("bongo:1").euclid(3,8).off(1/4, add(2)).delay(0.025).pan(0)
+d2: s("bongo:2").euclid(5,8).off(1/4, add(2)).delay(0.025).pan(1)
+// d3: s("bongo:12").euclid(6,8).pan(sine)
+d4: s("hh:3*4").gain(0.125)
+$: s("east:0*4").gain(0.125)
+$: s("east:2*8").gain(0.0325)
+
+d3: s("bongo*8").n(irand(10))
+
+
+// 6
+d&b 
+setcps(0.85)
+
+$: s("<{doepferms404_bd!2 [doepferms404_bd*2] doepferms404_bd }>")._scope()
+$: s("<kpr77_bd/1?>*3")
+ //n("0!2".add(berlin.fast(1).mul(7))).scale("d:minor")
+
+$: s("wt_digital_echoes")._scope()

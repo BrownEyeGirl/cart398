@@ -3,12 +3,10 @@
 // @by vigliensoni
 // @date Jan 2, 2026
 
-// 02
-n("0*2 1 2 3 4 5 6 7")
-  .s("darbuka")
-  .gain(rand.range(0.25,0.75))
-  .cutoff(rand.range(800,4000))
 
+
+// MY FIRST BEAT 
+sound("<{[bd bd] [bd bd], [~ lt] [lt lt] }>*4").bank("compurhythm8000")
 
 // my notes added 
 

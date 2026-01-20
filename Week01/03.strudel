@@ -4,12 +4,11 @@
 // @date Jan 3, 2026
 
 // 03
+
+  // SKYLAS LATE NIGHT JAMS 
+
+// (beat)
 setcps(130/60/4)
+$: n("[2]!2 4 [2]!3 4 2?").sound("jazz")
+$: s("1 [~ 1] [1]*2 [~ 1]").bank("rolandmc303_bd").gain(0.75)
 
-$: s("bd!4 [bd*4]!2 bd!2")
-  .slow(2)
-  .bank("dmx")
-
-$: s("[~ sd]!2")
-  .gain(0.75)
-  .bank("akailinn")
