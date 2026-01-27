@@ -7,6 +7,11 @@ to play (on mac) - option/return
 to stop (on mac) - option/return/.
 
 
+VISUALS 
+._scope()
+.color("pink").punchcard() 
+
+
 DRUMS
 bd - bass drum 
 sd - snare drum 

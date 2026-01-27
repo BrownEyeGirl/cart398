@@ -1,0 +1,17 @@
+
+
+samples({
+  gl: 'https://cdn.freesound.org/previews/9/9166_96-lq.mp3',
+  glbd: 'https://cdn.freesound.org/previews/242/242365_4420518-hq.mp3',
+  sing: 'https://cdn.freesound.org/previews/544/544401_861714-lq.mp3', 
+  bsdr: 'https://cdn.freesound.org/previews/841/841548_13074022-lq.mp3', 
+  bell: 'https://cdn.freesound.org/previews/414/414589_394391-lq.mp3'
+})
+
+setcpm(140)
+$: s("bsdr bsdr?").gain(0.5)
+$: s("[~ bell]").echo(4, 10, 0.5)
+
+
+//$: s("< ~ bell ~ ~>").gain(3)
+$: s("sing").gain(0.4).hpf("5000").chop(1).rev() // note is a d# 

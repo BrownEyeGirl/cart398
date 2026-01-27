@@ -1,0 +1,18 @@
+
+// samples 
+samples({
+    bsdr: 'https://cdn.freesound.org/previews/841/841548_13074022-lq.mp3'
+})
+
+
+// melody
+setcpm(60)
+$: note("<[E4 C4]!3 [E4 D4? D4 D4?]>*4") //note("<[E4 C4]!3>*2")
+  .sound("supersaw")
+  //.echo(3, 1/6, .8) // how many times to repeat, velocity offset
+  //.every(4, x => x.sub(-12)) // chunk(divides pattern into x parts, cycles through adding x.blank to each
+  .color("teal")._punchcard()
+
+// bassdrum 
+$:sound("<[bsdr]>*2").color("blue")._punchcard()
+

@@ -1,0 +1,43 @@
+
+
+// SKYLA'S SAMPLES "this is not called love..." 
+
+// samples 
+samples({
+    bsdr: 'https://cdn.freesound.org/previews/841/841548_13074022-lq.mp3',
+    monologue: 'https://cdn.freesound.org/previews/387/387335_2602571-lq.mp3'
+})
+
+// variables 
+let introLength = 2; 
+setcpm(30)
+
+// intro
+$:sound("gm_bird_tweet").gain("1.3").mask(time.lt(1)) // cat call :) 
+
+// monologue 
+$: s("monologue").slow(9).delay(0.2).gain("1.4").pan("1").color("pink")._scope() 
+
+// bassline
+$:sound("<{bsdr/3 ~ bsdr bsrd, ~ [gm_pad_halo ~] ~ [~ gm_pad_halo]}>").gain("0.3").dist("1.9")
+  .mask(time.gt(introLength)) // applies mask, so when time is greaterthan 4 cycles, it starts playing
+  .color("magenta")._punchcard()
+// drums 
+$:sound("<[bd bd] hh sd oh ~ sd ~ hh>*8").bank("RolandTR808")
+.mask(time.gt(introLength+1))
+
+// hats/snares 
+$: s("~ [~ vibraslap] ~ ~").gain("0.5").mask(time.gt(introLength)) // rattlesnake sound 
+$: s("[~ woodblock:1/4]").mask(time.gt(introLength+2))
+$: s("[~ hihat]*4").mask(time.gt(introLength+2)).gain("0.8")
+
+
+// melody 
+$: note("<[[e4 e4] [a4 g4?0.4] [e4 e4] [g4 a4?0.1]]>").sound("sin").mask(time.gt(introLength)).echo(2, 1/6, 0.4)
+$: s("pink").mask(time.gt(introLength)).gain(0.1)
+
+
+// voice 
+$: note("a:2 a:4").sound("gm_voice_oohs").mask(time.lt(introLength+2))
+
+
