@@ -1,7 +1,7 @@
-
-
-// GREEN FIELDS 4 EVER 
-
+samples({
+  voice: 'https://cdn.freesound.org/previews/843/843307_17921447-lq.mp3'
+})
+    
 // bass drum (gnarly)
 $: s("<1 [~]!3 1 1 [~]!4>").sound("viscospacedrum_bd")
   .distort("2") // distortion
@@ -21,3 +21,7 @@ $: note("<e4 c4 d4 e4 e4 c4 d4 e4 f4 e4 ~ d4 c4 b3>*4").sound("gm_electric_guita
 
 // chords (simple)
 $: note("<e4 c4 d4 b3 f4>").sound("organ_full").cut(1).gain("0.4").legato("1.5")
+
+
+// voice
+$: s("voice").slow(999).gain("3").delay(0.15).hpf(600).lpf(2000)
