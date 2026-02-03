@@ -1,0 +1,20 @@
+samples({
+  vocals: 'https://cdn.freesound.org/previews/742/742280_5781159-hq.mp3'
+})
+
+// vocals
+$: s("vocals/8").scale("a:major").fit()
+  .scrub(irand(16).div(16).seg(16)) // random chop values 16th of the full audio, 16th of a cycle long, 8th notes. 
+  .rib("<1, 4>",2) // "ribbon", takes a section and loops just that
+  .delay(0.1) 
+  .color("blue")
+  ._scope()
+
+
+
+// drums
+//d1: s("bd*2").gain("0.3").dist("1.5").trans("-20")
+//d2: s("white:8").decay(.1)
+
+
+//$: n("<[0]*4 [2]*4>*4").scale("a:minor").dist("1.8").trans("15")

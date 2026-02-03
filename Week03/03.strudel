@@ -1,0 +1,111 @@
+
+setcpm(80)
+samples({
+  angel: 'https://cdn.freesound.org/previews/147/147580_2448533-lq.mp3',
+  shutdown: 'https://cdn.freesound.org/previews/827/827683_13737430-lq.mp3', 
+  melody: 'https://cdn.freesound.org/previews/802/802409_15193016-lq.mp3',
+  hateu: 'https://cdn.freesound.org/previews/157/157503_495253-lq.mp3'
+  
+})
+
+
+
+$: s("<x x x [x x]>*2").sound("viscospacedrum_bd")
+.distort("2") // distortion
+//.gain("0.8")
+//.punchcard()// compensate for the distortiod
+
+
+//$: s("<hh>*2").gain("0.5")
+//$: s("[~ hh]*2")
+
+$: s("hateu").slow(999).delay(0.25).gain(1.2).dist(1.5).mask(time.gt(6))
+
+
+// basic drums, glue
+$: arrange(
+  [4, "rolandd70_bd*2"],
+  [4, "rolandd70_bd*4"],
+  [14,"rolandd70_bd [circuitsdrumtracks_bd rolandcompurhythm78_bd] jd990_sd bossdr550_rim"],
+).sound().dist("1.5").gain("0.8").lpf("300")
+
+
+samples({
+  vocals: 'https://cdn.freesound.org/previews/742/742280_5781159-hq.mp3'
+})
+
+// vocals
+$: s("vocals/10").scale("a:major").cut(6)
+  .scrub(irand(16).div(16).seg(10)) // random chop values 16th of the full audio, 16th of a cycle long, 8th notes. 
+  .rib("<1, 4>",2) // hlsdfh"ribbon", takes a section and loops just that
+  .delay(0.1) 
+  .color("blue")
+   .mask(time.gt(8))
+  ._scope()
+//dljfdddksde
+
+//$: arrange (
+  //[1, "angel"],
+  //[1, "melody/5"]
+//).s().slow(5).delay(0.5).gain(0.4)
+
+//$: s("melody/4").clip("<8>").scope()
+
+//$: s("[~ landline]*2")//.transpose("13")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+// bass drum (gnarly)
+$: s("<1 [~]!3 1 1 [~]!4>").sound("viscospacedrum_bd")
+  .distort("2") // distortion
+.gain("1.7") // compensate for the distortion
+
+// basic rhythm (glue)
+$: s("<rolandd70_bd [circuitsdrumtracks_bd rolandcompurhythm78_bd] jd990_sd bossdr550_rim>*4").dist("0.8").gain("2.4")
+
+
+
+// melody (beautiful)
+$: note("<e4 c4 d4 e4 e4 c4 d4 e4 f4 e4 ~ d4 c4 b3>*4").sound("gm_electric_guitar_clean")
+.legato("1.2") // makes the ends of the notes overlap
+.gain("0.4")
+.dist("0.4")
+.delay(0.5)
+.speed(rand.range(0.98, 1.02))
+.scope()
+
+// chords (simple)
+$: note("<e4 c4 d4 b3 f4>").sound("organ_full").cut(1).gain("0.4").legato("1.5")
+
+
+// voice
+$: s("voice").slow(999).gain("4").delay(0.15)//.hpf(600).lpf(2000)
+
+
+
+// SKYLAS DANCE BEAT (pop)
+
+*/

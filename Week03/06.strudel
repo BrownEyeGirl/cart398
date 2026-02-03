@@ -1,0 +1,29 @@
+// I MISS YOU 
+
+
+samples ({
+  landline: 'https://cdn.freesound.org/previews/815/815074_12333864-lq.mp3',
+  iloveu: 'https://cdn.freesound.org/previews/799/799568_6591927-lq.mp3'
+})
+
+
+setcpm(30)
+
+// 2 cycle intro, 14 buildup 
+
+// basic drums, glue
+$: arrange(
+  [2, "rolandd70_bd*2"],
+  [2, "rolandd70_bd*4"],
+  [14,"rolandd70_bd [circuitsdrumtracks_bd rolandcompurhythm78_bd] jd990_sd bossdr550_rim"],
+).sound().dist("1.5").gain("0.5").lpf("300")
+
+$: sound("~ ~ ~ [ ~ hh]").gain("0.2")
+
+
+
+
+
+$: s("[~ landline]*2")//.transpose("13")
+
+$: s("iloveu").slow(999)

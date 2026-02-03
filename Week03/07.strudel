@@ -1,0 +1,21 @@
+// a little techno beat. needs some work. 
+
+setcpm(130/4)
+// samples
+samples ({
+  poweron: 'https://cdn.freesound.org/previews/147/147580_2448533-lq.mp3',
+  bsdr: 'https://cdn.freesound.org/previews/89/89455_377011-lq.mp3'
+})
+
+let underwater = slider(0.5004, 0.3, 0.9); 
+let vocal = 1-underwater; 
+
+$: s("[x ~]!4").sound("rolandmc202_bd").gain(underwater)
+$: s("[~ x]!4").sound("dr550_hh").gain(underwater)
+
+$: s("<x [x x] x> <x x [x x]>*2 ").note("<a <b b#> <c c#> e>").scale("a:minor").s(wchoose(["gm_fx_atmosphere:2", 10], ["gm_fx_atmosphere", 7], ["gm_fx_atmosphere:1", 8])).delay(0.25).gain(underwater)//.sound("bytebeat")//.delay(rand(0, 0.6))
+
+
+
+//$: sound("0 [1 2] 3.add('10 20')").sound("user").gain(underwater)
+//.pattack(0.5)

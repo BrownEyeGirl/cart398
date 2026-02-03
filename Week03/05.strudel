@@ -1,0 +1,33 @@
+samples({
+  voice: 'https://cdn.freesound.org/previews/843/843307_17921447-lq.mp3'
+})
+    
+// bass drum (gnarly)
+$: s("<1 [~]!3 1 1 [~]!4>").sound("viscospacedrum_bd")
+  .distort("2") // distortion
+.gain("0.5") // compensate for the distortion
+
+// basic rhythm (glue)
+$: s("rolandd70_bd [circuitsdrumtracks_bd rolandcompurhythm78_bd] jd990_sd bossdr550_rim").dist("0.5").gain("0.9")
+
+
+
+// melody (beautiful)
+$: note("<e4 c4 d4 e4 e4 c4 d4 e4 f4 e4 ~ d4 c4 b3>*4").sound("gm_electric_guitar_clean")
+.legato("1.2") // makes the ends of the notes overlap
+.gain("0.6")
+.dist("0.4")
+.delay(0.3)
+.speed(rand.range(0.98, 1.02))
+
+// chords (simple)
+$: note("<e4 c4 d4 b3 f4>").sound("organ_full").cut(1).gain("0.4").legato("1.5")
+
+
+// voice
+$: s("voice").slow(999).gain("4").delay(0.15).hpf(600).lpf(2000)
+
+
+
+// SKYLAS DANCE BEAT (pop)
+
