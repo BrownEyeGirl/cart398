@@ -1,8 +1,5 @@
 // I MISS YOU (old voice memo found online)
 
-// I MISS YOU 
-
-
 samples ({
   landline: 'https://cdn.freesound.org/previews/815/815074_12333864-lq.mp3',
   iloveu: 'https://cdn.freesound.org/previews/799/799568_6591927-lq.mp3',
@@ -27,13 +24,13 @@ $: arrange(
   [7,"rolandd70_bd [circuitsdrumtracks_bd rolandtr606_bd] jd990_sd korgm1_bd"],
   [1, "~"]
   
-).sound().dist("1.5").gain(thinking+0.3).lpf("300")
+).sound().dist("1.5").gain(thinking+0.3).lpf("300").color("<yellow orange red pink >")._scope()
 
 $: sound("~ [bossdr550_hh] ~ [casiorz1_hh]").gain(thinking-0.2)
 
 //$: s("<[[x] [x x] [x] ~] [x x x x]>").note("<A B C# D E F# G#>").sound("gm_violin").legato(2).gain(thinking).room(1)
 
-$:s("<[x x x x] [x ~ x x][x x x x]!2 >").note("<[E F# C# B] [A ~ B C#] [E F# G# F#] [E C# B A]>").sound("gm_violin").legato(2).gain(thinking).sustain(1).lpf("< <200 200 200 200> <350 350 350 350> <400 400 400 400> <600 600 600 600>>")
+$:s("<[x x x x] [x ~ x x][x x x x]!2 >").note("<[E F# C# B] [A ~ B C#] [E F# G# F#] [E C# B A]>").sound("gm_violin").legato(2).gain(thinking).sustain(1).lpf("< <200 200 200 200> <350 350 350 350> <400 400 400 400> <600 600 600 600>>").color("<yellow orange red pink >").scope()
 
 $:s("x x x x").note("<[A E C# E]  [A E B E]  [A F# C# F#] [G# E B E]>").sound("gm_viola").gain(thinking-0.2).dist(0.8).sustain(0.4)
 
