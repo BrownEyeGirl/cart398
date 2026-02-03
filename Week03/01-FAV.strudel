@@ -1,4 +1,5 @@
-// I MISS YOU (old voice memo found online)
+// I MISS YOU (old voicemail found online)
+
 
 samples ({
   landline: 'https://cdn.freesound.org/previews/815/815074_12333864-lq.mp3',
@@ -24,7 +25,7 @@ $: arrange(
   [7,"rolandd70_bd [circuitsdrumtracks_bd rolandtr606_bd] jd990_sd korgm1_bd"],
   [1, "~"]
   
-).sound().dist("1.5").gain(thinking+0.3).lpf("300").color("<yellow orange red pink >")._scope()
+).sound().dist("1.5").gain(thinking+0.5).lpf("300").color("<yellow orange red pink >")._scope()
 
 $: sound("~ [bossdr550_hh] ~ [casiorz1_hh]").gain(thinking-0.2)
 
