@@ -1,0 +1,64 @@
+// SKYLA (thank you for being a part of this show) (intro track )
+
+
+// https://github.com/tonaljs/tonal/blob/main/packages/scale-type/data.ts
+//let personality = ""; 
+//$:s().scale("personality")
+
+samples({
+  chant: 'https://cdn.freesound.org/previews/742/742280_5781159-lq.mp3',
+  thankyou: 'https://cdn.freesound.org/previews/382/382763_5994209-lq.mp3', 
+  space: 'https://cdn.freesound.org/previews/47/47623_2518-lq.mp3',
+})
+
+
+let alienattack = slider(0.558, 0, 1);
+
+
+
+$: s("pink").gain(0.1)
+//$: sound("chant").gain(0.7).slow(10).speed(0.9).fit()
+$: sound("chant").gain(0.7).slow(8).speed(0.9).fit()
+  .scrub("{<0.3>}") //<0.7 0.5>
+  .mask(time.gt(6))
+//$: sound("chant").slice(8, "<4 3 4 3 2 6 2>*2")
+$: s("thankyou").delay(0.25).slow(25).dist(1.5).gain(0.2).room(2)//.mask(time.gt(2))
+
+//$: sound("chant").gain(0.7).slow(10).fit().cut(0.5).scrub("{<0.5>}") 
+
+//$: s("x").note("<e4 f#5 b4 d4 bb4>").sound("sin").gain(0.2).attack(0.5)//.voicing()
+//bd
+
+
+// heartbeat of the song 
+$: arrange(
+  [10, "~"],
+  [8, "<x x ~ [x x] x x x [x x]>*8"],
+  [2, "[x]*8"],
+  [1, "[x]*16"],
+  [1, "[x]*8 ~*8"]
+).sound("doepferms404_bd").dist(0.6).gain(0.4).lpf(200)
+
+
+
+
+$: s("[~ x]*4").sound("compurhythm1000_bd").lpf(700).gain(0.5)
+$: s("hh:1*4")
+
+
+//aliens landing 
+$: s("space").slow(15).gain(alienattack)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

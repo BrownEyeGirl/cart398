@@ -1,0 +1,72 @@
+// SKYLA ALIEN INVASION  (needs more work)
+
+// SKYLA (space)
+// https://github.com/tonaljs/tonal/blob/main/packages/scale-type/data.ts
+//let personality = ""; 
+//$:s().scale("personality")
+
+samples({
+  space: 'https://cdn.freesound.org/previews/47/47623_2518-lq.mp3',
+  alienbeep: 'https://cdn.freesound.org/previews/264/264370_2750665-lq.mp3',
+  birdsong: 'https://cdn.freesound.org/previews/751/751152_16245704-lq.mp3',
+  mono: 'https://cdn.freesound.org/previews/769/769376_13999124-lq.mp3',
+  sweep: 'https://cdn.freesound.org/previews/348/348797_1391542-lq.mp3',
+})
+
+
+let alienattack = slider(0.515, 0, 1);
+let speedoflight = slider(138.52, 80, 190);
+let underwater = perlin.range(300,8000); 
+
+setcpm(100)
+
+$: s("pink").gain(0.1)
+
+
+//$: s("sweep*2").slice(5, "<0 3 1 2>").fit().room(3).gain(alienattack)
+
+
+let birdsong = s("birdsong").room(2).gain(0.6).fit()
+
+$: arrange(
+  [1, birdsong],
+  [1, "~"]
+)
+
+$: s("<sin>*3").note("<a b c d>")//.cutoff(underwater)
+$: s("x").sound("alienbeep").slice(8, "<1 2 3 4 5 6 7 0>").cut(1).degradeBy(0.9).room(2).gain(0.2)
+//$: s("bd*4,compurhythm8000_perc*8").cutoff(underwater).cut(3).degradeBy(0.4)
+
+
+$: s("bd").segment(16).degradeBy(.4).often(x=>x.speed(0.6)).dist(0.4)
+$: s("hh*4").delay(0.4).ribbon(16,1)
+
+
+//it speaks! 
+$: s("mono").slice(8, "<0 ~ 1 2 ~ 3 4 5 6 7>").fit().room(1.2).hpf(1000).gain(0.5)
+
+// heartbeat of the song 
+/*$: arrange(
+  [10, "~"],
+  [8, "<x x ~ [x x] x x x [x x]>*8"],
+  [2, "[x]*8"],
+  [1, "[x]*16"],
+  [1, "[x]*8 ~*8"]
+).sound("doepferms404_bd").dist(0.6).gain(0.4).lpf(200)
+*/
+
+
+//$: s("[~ x]*4").sound("compurhythm1000_bd").lpf(700).gain(0.5)
+//$: s("hh:1*4")
+
+
+//aliens landing 
+$: s("space").slow(15).gain(alienattack)
+
+
+
+
+
+
+
+

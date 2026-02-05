@@ -1,0 +1,44 @@
+// @title W01-01
+// @license CC BY-NC-SA 4.0 https://creativecommons.org/licenses/by-nc-sa/4.0/
+// @by vigliensoni
+// @date Jan 1, 2026
+
+
+// MY FAVOURITE
+
+setcpm(60)
+
+let vol = slider(1.612, 0, 2)
+
+// main techno beat (v ^ v ^ v ^ v ^)
+$: s("{bossdr55_sd ~ bossdr55_sd ~, ~ bossdr110_bd, linndrum_bd ~}")._scope()// syncopations 
+$: s("hh [~ hh] [~ hh] hh?")._scope()// kicks (bass) 
+$: s("[yamahary30_bd ~]*2").speed(1).gain(vol)
+
+// rumblee (prepare for bass drop)
+$: s("[bossdr55_hh ~]*8").gain((3-vol))
+
+// explosions! when bass drop
+
+
+// machine noise 
+$: s("[emumodular_perc?]*2")
+
+// some melody 
+//$: note("c3 <e2 <d2 ~>>").sound("gm_synth_bass_1").speed(slider( 11.676, -12, 12))
+
+
+// OTHER NOTES 
+
+// 01
+sound("bd [~ rim] mt [lt ht]")
+  .dist("2:0.5")
+  .chunk(4, x => x.hurry(2))
+
+
+// SKYLA's EXPERIMENTS (movie soundtrack) 
+$: s("[bd ~] [hh hh] [bd ~]] [lt ~ lt ~]").bank("casiorz1")
+  .dist("5:5") // distortion(distortion, post gain vol) (range 0-10) 
+  .chunk(6, x => x.hurry(2)) // chunk(divides pattern into x parts, cycles through adding x.blank to each
+.echo(5, 1/8, 1) // .echo(n, time, decay)
+
