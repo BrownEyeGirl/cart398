@@ -58,7 +58,7 @@ $: "<Eb F Gm Dm>".pick({
 .note().room(.5).s('gm_pad_sweep').mask(time.gt(sect1)).transpose(15).when(time.gt(sect3), x=>x.degradeBy(0.4))
 
 
-$:s(" gm_synth_brass_1:2 ").note("<Eb F Gm Dm>").transpose(-12).mask(time.gt(16))
+$:s(" gm_synth_brass_1:2 ").note("<Eb F Gm Dm>").transpose(-12).mask(time.gt(16)).gain(0.5)
 
 $: note("<<Eb F Gm> <F Gm Eb> <Eb Gm F> <Dm Gm Eb>>*16").s(choose("gm_voice_oohs:3", "gm_voice_oohs:0") )//.crush(4)
     //.slow(4)
