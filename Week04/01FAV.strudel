@@ -1,0 +1,77 @@
+// SKYLA - happy thoughts 
+
+setcpm(140/4)
+
+
+let sect1 = 8; 
+let sect2 = 8; 
+let sect3 = 16; 
+let brek = 2; 
+
+// SCALES 
+
+samples({
+  breaths: 'https://cdn.freesound.org/previews/54/54962_506609-lq.mp3',
+  drips: 'https://cdn.freesound.org/previews/166/166320_2104797-lq.mp3',
+  laughs: 'https://cdn.freesound.org/previews/19/19156_76085-lq.mp3',
+  
+})
+
+
+//let water = slider(3, 0, 3)
+let inverse = 4; 
+
+
+// AMBIENT 
+$: s("drips/2").gain(0.4).late(0.4).delay(0.111)
+$: s("< ~ wind:2>/4").sometimesBy(0.6, x=>x.speed("0.4")).gain(0.4).pan(0)
+$: s("breaths/4").sometimesBy(.4, x=>x.speed("0.3")).gain(0.5).pan(1)
+
+
+
+// HEARTBEAT
+$: arrange(
+  [sect1, "<x [x ~] ~>*4"], 
+  [brek, "~"],
+  [sect2, "<x x ~ [x x] x x ~ [x x] x x ~ [x x] x x [x x] [x x]>*8".gain(2)],
+  [brek, "~"],
+  [sect3, "[x ~]*4"]
+).s("bd").lpf(300).gain(1.6).sound("bd")
+
+// BEEPS 
+$: arrange(
+  [sect1, "~"],
+  [brek, "~"],
+  [sect2, "~ ~ [x x?] ~ ~ ~ [x x x] ~ x ~ x ~ [x x?] x ~ [x x]"],
+  [brek, "~"],
+  [sect3, "[~ x]*4"] 
+).s("hh").gain(0.7)
+
+
+// VOCAL
+$: "<Eb F Gm Dm>".pick({
+  Eb: "51, 55,58",
+  F: "53,57,60",
+  Gm: "55,58,50",
+  Dm: "50,53,57",
+}).gain(0.5)
+.note().room(.5).s('gm_pad_sweep').mask(time.gt(sect1)).transpose(15).when(time.gt(sect3), x=>x.degradeBy(0.4))
+
+
+$:s(" gm_synth_brass_1:2 ").note("<Eb F Gm Dm>").transpose(-12).mask(time.gt(16))
+
+$: note("<<Eb F Gm> <F Gm Eb> <Eb Gm F> <Dm Gm Eb>>*16").s(choose("gm_voice_oohs:3", "gm_voice_oohs:0") )//.crush(4)
+    //.slow(4)
+    .transpose(24)
+    .gain(1)
+    //.delay(0.1)
+    .room(0.2)
+    .pan(sine.range(-1,1))
+    //.lpf(sine.range(400,3000))
+    //.gain(sine.range(0.2, 2.5))
+    .mask(time.gt(12))
+    .when(time.gt(32), x=>x.degradeBy(0.8))
+
+// WHY? 
+$: s("laughs/12").cut(12).gain(0.4).lpf(2000).hpf(600).room(0.2).mask(time.gt(10)).echo(1, 0.5, 0.5).mask(time.gt(23))//.slow(999)
+                                                                  
