@@ -18,7 +18,7 @@ let alienattack = slider(0.515, 0, 1);
 let speedoflight = slider(138.52, 80, 190);
 let underwater = perlin.range(300,8000); 
 
-setcpm(100)
+setcpm(100/4)
 
 $: s("pink").gain(0.1)
 
