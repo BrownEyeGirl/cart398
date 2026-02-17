@@ -1,0 +1,43 @@
+// samples! 
+
+samples('github:BrownEyeGirl/sounds-strudel');
+
+
+$: sound("vocal-musical")
+  .loop(1)
+  //.striate(19) // "Cuts each sample into the given number of parts, triggering progressive portions of each sample at each loop."
+  .slice(16, "0 1 <2 2*2> 3 [4 0] 5 6 7".every(3, rev))
+  //.scrub("{0@3 0@2 4@3}%8".div(16))
+  //.every(3, rev)
+//$: s("bd")
+
+//$: sound("monologue").loop(4).lpf(900).room(0.5).speed(0.8)
+
+// samples! 
+
+samples('github:BrownEyeGirl/sounds-strudel/');
+
+setcpm(110/4)
+
+$: sound("vocal-musical:0") 
+  .loop(1)
+  //.striate(19) // "Cuts each sample into the given number of parts, triggering progressive portions of each sample at each loop."
+  //.slice(16, "0 1 <2 2*2> 3 [4 0] 5 6 7".every(3, rev))
+  .slice(9, "<5 6 7 6 7>")
+ // .lpf(400)
+  //.room(3)
+  //.legato()
+  // .scrub("{<9@4 7@4>}%8".div(16))
+   .speed(slider(1.084, 0, 2))
+   .legato(2)
+  //.every(3, rev)
+//$: s("bd")
+
+//$: sound("monologue").loop(4).lpf(900).room(0.5).speed(0.8)
+
+$: sound("bd ~ sd ~")
+  .lpf(sine.range(400, 2000).slow(8))
+  .resonance(0.7)
+
+$: sound("ajkpercusyn_sd(5,8)").noise("<0.1 0.25 0.5>*4").delay(sine.range(0, 1).slow(8))
+

@@ -1,0 +1,37 @@
+
+// a little techno beat. 
+
+setcpm(130/4)
+
+samples('github:BrownEyeGirl/sounds-strudel');
+
+samples ({
+  poweron: 'https://cdn.freesound.org/previews/147/147580_2448533-lq.mp3',
+  bsdr: 'https://cdn.freesound.org/previews/89/89455_377011-lq.mp3', 
+  wow: 'https://cdn.freesound.org/previews/267/267470_4463962-lq.mp3', 
+  baby: 'https://cdn.freesound.org/previews/194/194530_93137-lq.mp3'
+})
+
+let underwater = slider(0.4062, 0.3, 0.9); 
+let vocal = 1-underwater; 
+let intro = 8; 
+
+$: arrange(
+  [intro, "~"], 
+  [8, "[x ~]!4"]
+).sound("rolandmc202_bd").gain(underwater)
+
+$: arrange(
+  [intro, "~"], 
+  [8, "[~ x]!4"]
+).sound("dr550_hh").gain(underwater)
+
+$: s("<x [x x] x> <x x [x x]>*2 ").note("<a <b b#> <c c#> e>").scale("<a:minor>").s(wchoose(["gm_fx_atmosphere:2", 10], ["gm_fx_atmosphere", 7], ["gm_fx_atmosphere:1", 8])).delay(0.25).gain(underwater).pan(sine.range(-1,1)).legato(2)
+
+
+$: s("<x [x x] x> <x x [x x]>*2 ").note("<a4 <b4 b#4> <c4 c#4> e4>").scale("<a:minor>").s(wchoose(["gm_choir_aahs:2", 10], ["gm_choir_aahs", 7], ["gm_choir_aahs:1", 8])).delay(0.25).gain(underwater).pan(sine.range(1,-1)).rev().mask(time.gt(9))
+
+
+$: sound("wow").slow(12).cut(12).room(0.4).lpf(500).gain(0.8).speed(1.111).mask(time.gt(12)).delay(0.3)
+$: sound("baby").slow(8).cut(8).room(0.4).gain(0.9).room(0.2).delay(0.2).speed(0.9).mask(time.gt(2))
+

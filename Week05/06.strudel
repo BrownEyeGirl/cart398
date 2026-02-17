@@ -1,0 +1,13 @@
+// Simple, what do you do? (could be developed into a track)
+
+samples('github:BrownEyeGirl/sounds-strudel')
+
+$: sound("monologue").speed(0.9).slow(10).room(0.5)
+
+$: sound("dantranh_vibrato").note("<c [a b] c a>") // 16 functions
+
+$: sound("bd ~ sd ~")
+  .lpf(sine.range(400, 2000).slow(8))
+  .resonance(0.7)
+
+$: sound("hh(5,8)").noise("<0.1 0.25 0.5>*4").delay(sine.range(0, 1).slow(8)).gain(0.2)

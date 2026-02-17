@@ -1,0 +1,24 @@
+
+
+// midtones 
+let mel1 = note("<3 4 5 8>").sound("gm_electric_guitar_clean")
+  .scale("a3:major").gain(0.5).room(0.2)
+  .cutoff(perlin.range(111,2000)).pan(perlin)
+  .speed(sine.slow(1))
+  .delay(0.555)
+  .dt(1/8)
+ .crush(perlin.range(3, 5))
+
+
+let mel2 = note("<4 ~ 4 [3 3] [3 4]? ~ 3 [4 5]?>*8").sound("gm_electric_guitar_clean")
+  .scale("a3:major").gain(0.8).room(0.2)
+  .cutoff(perlin.range(111,2000)).pan(perlin)
+ .crush(5)
+
+
+$: arrange(
+  [0, mel1],
+  [0, mel2],
+  [4, "~"]
+)
+  
