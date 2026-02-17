@@ -31,13 +31,13 @@ $: arrange(
 // melody 
 $: arrange(
   [brek, "~"], 
-  [s1, "<[[x x] x*6]/2>*4".note("D D# F G")], 
+  [s1, "<[[x x?] x*6]/2>*4".note("D D# F G")], 
   [s2, "x".note("<G F D# D>")]
 ).sound("gm_pad_metallic*4")
   .gain(2)
   .delay(0.2)
   .room(0.4)
-  .gain(0.1)
+  .gain(0.4)
   .someCycles(x=>x.rev())
   .cutoff(sine.range(500, 4000).slow(4)).speed(speedin)
   .color("blue").scope()
