@@ -1,0 +1,49 @@
+// First draft (saving for later)
+
+
+
+//let pulse = s("bd").room(0.3).cutoff(500).dist(0.9)
+//let drone = s("wt_digital_echoes")
+
+// MAPPIN THE BEAT 
+let intro = 2
+let verse = 4
+let prec = 4
+let chorus = 0
+
+
+$: arrange(
+  [intro, "~"], 
+  [verse, "<[x x x [x x]] [x x x [x]*4]>"]
+).sound("bd").room(0.3).cutoff(500).dist(0.9)
+
+
+
+$: sound("wt_digital_echoes(6, 16)").note("<f <g d> e d c>").speed("<0.4 0.8 1.5 0.5 1.4>")
+
+
+$: arrange(
+  [intro, "<x:1 x:2 x:3 [x:4]*4>*4".delay(0.3)], 
+  [verse, " ~ x? ~ ~".gain(0.5)]
+  
+  ).s("gm_guitar_fret_noise").gain(0.5)
+
+
+
+/*$: arrange(
+  [intro, "x"], 
+  [verse, "~"],
+  [prec, note("")],
+  [chorus, note("f g e d c")]
+).s("gm_fx_echoes:1 gm_fx_echoes:2 gm_fx_echoes:3 gm_fx_echoes:4 gm_fx_echoes:5").voicing()//.note("<f g e d c>")
+*/
+
+$: s("<F G C> <E Dm C>").voicing().s("gm_fx_echoes:1")
+
+/*
+$: arrange(
+  [intro, ], 
+  [verse, ],
+  [prec, ],
+  [chorus, ]
+)*/

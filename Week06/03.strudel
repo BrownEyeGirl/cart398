@@ -1,0 +1,30 @@
+// pulsing club music, distorted
+
+// parts 
+let a = 1
+let b = 4
+let c = 4
+let d = 1
+let trans = 1
+
+
+let hat = s("hh*6").delay(.5).delaytime(.25).orbit(1).lpf(1700)
+let rattle = s("~ sd ~ sd").delay(.5).delaytime(.125).orbit(2).gain(0.5)
+let pulse = s("bd*4")
+
+$: arrange(
+  [a, hat.gain(0.5)], 
+  [b, stack(hat, rattle.lpf(700))],
+  [c, stack(hat, rattle, pulse.dist(0.4))],
+  [trans, stack(hat, rattle, pulse.seg(8))],
+  [d, hat.gain(0.5)]
+)
+
+
+
+$: sound("gm_harpsichord(6, 16)").note("<[b3 c4] [b4 a3]> e4 <[c4 d4] [c5 b4]> e4").delay(0.5).legato(1.5)
+//.tremsync(4).tremoloshape("<sine saw>")
+.attack("<0.1 .1 .2>")
+  .lpa("<.5 .25 .1 .01>").lpenv(4)
+//.release("<0 .1 .4 .6 1>/2")
+.lpenv(perlin.range(1,8).slow(2)).phaser(2)

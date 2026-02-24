@@ -1,0 +1,26 @@
+// CLUB MUSIC!!
+
+setcpm(120/4)
+
+let t1 = 2
+let t3 = 8
+
+  // bassdrum 
+$: s("bd").beat("0,4,8,11,14",16)// fav drum pattern so far, 16th notes w an early beat
+  .dist(0.5).cutoff(500).gain(1)
+  .duckorbit(4).duckattack(0.2).duckdepth(1)
+  .mask(time.gt(t1))// duck creates "sidechain effect", edm push and pull pulses between different soudns?
+
+  // hh
+$: s("hh").beat("2,6,13,15",16).mask(time.gt(t1)).gain(0.6)
+$: s("hh*16").mask(time.lt(t1)).gain(0.4)
+  // buzzes 
+$: s("wt_digital_echoes(5,16)").tremsync(2).tremoloshape("<sine saw>").gain(2)
+  .mask(time.gt(t1)) 
+  
+$: n(run(12)).scale("a4:major").sound("gm_fx_echoes:1 gm_fx_echoes:2 gm_fx_echoes:3 gm_fx_echoes:4").delay(1).sometimesBy(0.5, x=>x.rev()).seg(16).gain(sine.range(0.2, 1))
+  .room(0.4).phaser(2)
+  .mask(time.gt(t3))
+ 
+
+
