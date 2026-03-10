@@ -1,0 +1,16 @@
+// default
+speed=2
+
+s0.initCam()
+src(s0)
+  .color(5,0, 0) // r,g,b
+  .brightness(1)
+  .diff(osc(1,0.4,300))
+ // modulations
+  //.modulateScrollX(src(s0), 0.05) // source, amount, scroll
+ // .modulateScrollY(src(s0), 0.01)
+  .modulate(src(s0), 0.1)
+  .modulateKaleid(src(s0), 100)
+  
+  .out(o0)
+

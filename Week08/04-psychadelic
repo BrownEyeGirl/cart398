@@ -1,0 +1,10 @@
+// default
+s0.initCam()
+src(s0) // source 
+// features 
+  //.invert()
+  //.thresh(0.1,0.4)
+//.brightness(()=>Math.random()*0.15)
+  .modulatePixelate(noise(2,0.9),200)
+.colorama(()=> Math.tan(time)+0.3.slow(2)
+  .out(o0)// out

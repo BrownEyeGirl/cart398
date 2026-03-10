@@ -1,0 +1,31 @@
+// 
+
+setcpm(100/4)
+
+//$: sound("gm_distortion_guitar").//.s("<x x [x x] [~ x] x>")
+//$: 
+$: "[c2 c3]*4".transpose("<0 -2 5 3>").note().sound("gm_distortion_guitar")
+  .delay(0.2).room(1).size(2)
+  //.duckorbit()
+.gain(sine.range(0.5, 1).slow(2))
+
+
+$: arrange(
+  [4, "x*8".gain(0.4)],
+  [4, "x".beat("0,4,8,11,14" ,16)], 
+  [2, "~"]
+).s("bd").cutoff(1000).dist(0.3).gain(0.7).legato(0.6)
+
+
+$: s("[~ hh]*4(11, 16)").gain(0.2)
+$: s("[~ hh]*4").delay(0.5).gain(0.2)
+//$: note("[c3 bb2 f3 eb3]*2").sound("sawtooth").lpf(600).adsr(".1:.1:.5:.2").degradeBy(0.8)
+/*$: arrange(
+  [2, "[~ hh]*4".delay(0.25)],
+  [2, "[bd [sd sd] [bd bd] sd]*2".cutoff(500)]
+).s()*/
+
+/*$: n("5 [3 -2] ").add("<3 <2 3>>")//.add("<0 <1 -1>>"))
+.color("<cyan <magenta yellow>>").adsr("[.1 0]:.2:[1 0]")
+.tremsync(4).tremoloshape("<sine tri square>")*/
+//.sound("gm_electric_guitar_muted").room(.5)

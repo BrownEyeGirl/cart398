@@ -1,0 +1,13 @@
+
+
+//oil spill 
+speed=0.1
+
+osc(100, 
+    [0.006, 0.007].smooth(), 
+    [0.5, 1, 0.5].smooth()).hue([8.888].smooth())
+  .modulateScale(
+    noise([1,5].smooth()))
+  .out()
+
+

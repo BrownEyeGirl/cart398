@@ -1,0 +1,6 @@
+// I made code in js that connects a NASA API for astroids to the strudel sounds. This is the strudel section for connecting that code
+// simple,  connects the strudel to the API 
+
+let cc = await midin('IAC Driver Bus 2')
+$: note("c a f e").lpf(cc(0).range(0, 1000).add(1000)).lpq(cc(1).range(0, 10)).sound("sawtooth")
+

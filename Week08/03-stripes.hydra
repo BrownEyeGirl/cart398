@@ -1,0 +1,8 @@
+
+
+// peculiar case of the stripes 
+
+osc([100].fast(2))
+.mask(shape(9, () => Math.sin(time) * 0.4 + 1.3))
+ .kaleid(5)
+  .out()
