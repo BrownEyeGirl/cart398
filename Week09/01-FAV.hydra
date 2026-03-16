@@ -1,0 +1,9 @@
+s0.initCam() // initialize 
+src(s0)
+ // .modulateHue(src(s0).scale(11),1)
+  .add(osc(1, ()=> Math.range(-2, 2)).color(2.6, 0, 3), 2)
+  .colorama(0.03)
+  //.luma()//.invert()
+  .modulate(shape(99).scrollY(Math.random()*-1).scrollX([Math.random()*-1,Math.random()])
+  .add(shape(99).scrollY(Math.random()*-0.3).scrollX([Math.random()*-1,Math.random()].offset(0.5))))
+.out()

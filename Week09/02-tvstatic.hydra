@@ -1,0 +1,1 @@
+osc().add(noise(300), 39).out()
