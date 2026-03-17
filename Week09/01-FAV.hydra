@@ -8,7 +8,7 @@ bpm = 86;
 hydraText.font = "cursive"
 hydraText.lineWidth = "0%"
 hydraText.textSize = "10%"
-str = "night_visions_behind_my_eyelids"
+str = "night_visions_behind_my_eyelids_"
 
 voronoi([1, 4, 8, 10, 20], 1, 20)
     .modulatePixelate(noise(3, 0, 0.4))
